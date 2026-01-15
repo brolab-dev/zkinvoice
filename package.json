@@ -1,0 +1,34 @@
+{
+  "name": "zk-invoice-platform",
+  "version": "1.0.0",
+  "description": "Decentralized invoicing platform with privacy-preserving KYC verification on Mantle",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "frontend",
+    "circuits"
+  ],
+  "scripts": {
+    "contracts:compile": "cd contracts && npx hardhat compile",
+    "contracts:test": "cd contracts && npx hardhat test",
+    "contracts:deploy:local": "cd contracts && npx hardhat ignition deploy ignition/modules/ZKInvoice.js --network localhost",
+    "contracts:deploy:mantle": "cd contracts && npx hardhat ignition deploy ignition/modules/ZKInvoice.js --network mantleTestnet",
+    "contracts:node": "cd contracts && npx hardhat node",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:start": "cd frontend && npm run start",
+    "circuits:compile": "cd circuits && npm run compile",
+    "dev": "npm run frontend:dev"
+  },
+  "keywords": [
+    "blockchain",
+    "mantle",
+    "invoice",
+    "kyc",
+    "zero-knowledge",
+    "privacy"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

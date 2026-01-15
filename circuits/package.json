@@ -1,0 +1,20 @@
+{
+  "name": "zk-kyc-circuits",
+  "version": "1.0.0",
+  "description": "ZK circuits for privacy-preserving KYC verification",
+  "scripts": {
+    "compile": "circom kyc.circom --r1cs --wasm --sym -o build",
+    "setup": "snarkjs groth16 setup build/kyc.r1cs powersOfTau28_hez_final_14.ptau build/kyc_0000.zkey",
+    "contribute": "snarkjs zkey contribute build/kyc_0000.zkey build/kyc_final.zkey --name='ZK Invoice Contribution'",
+    "export-vkey": "snarkjs zkey export verificationkey build/kyc_final.zkey build/verification_key.json",
+    "export-verifier": "snarkjs zkey export solidityverifier build/kyc_final.zkey ../contracts/contracts/Groth16Verifier.sol",
+    "prove": "node scripts/prove.js",
+    "verify": "node scripts/verify.js",
+    "build-all": "npm run compile && npm run setup && npm run contribute && npm run export-vkey && npm run export-verifier"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "snarkjs": "^0.7.4"
+  }
+}
+
