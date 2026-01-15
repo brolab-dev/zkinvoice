@@ -1,0 +1,19 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "cd .. && npm run build:frontend",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "functions": {
+    "app/**": {
+      "maxDuration": 30
+    }
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID": "@walletconnect_project_id",
+      "NEXT_PUBLIC_INVOICE_MANAGER_ADDRESS": "0x06e56a9A77a226733e6122a5254d87F7485BD7C1",
+      "NEXT_PUBLIC_ZK_KYC_REGISTRY_ADDRESS": "0x66945d47d4f2b582E6dEc601d4f7E3ebd50d7230",
+      "NEXT_PUBLIC_KYC_VERIFIER_ADDRESS": "0x4ee40b8851e87294712Ff498d2eccb481004BA09"
+    }
+  }
+}
